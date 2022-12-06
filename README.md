@@ -30,7 +30,6 @@
 - [ ] https://lgtm.com
 
 二、优秀资源
-- [ ] [《深入理解CodeQL》](https://github.com/ASTTeam/CodeQL)@0e0w
 - [ ] [《CodeQL 学习笔记》](https://www.yuque.com/loulan-b47wt/rc30f7/)@楼兰
 - [ ] [《Codeql学习笔记》](https://github.com/safe6Sec/CodeqlNote)@safe6Sec
 - [ ] [《记录学习codeql的过程》](https://github.com/Firebasky/CodeqlLearn)@Firebasky
@@ -39,7 +38,6 @@
 - [ ] [《静态分析☞CodeQL/Soot/SAST》](https://github.com/pen4uin/static-analysis)@pen4uin
 - [ ] [《Finding security vulnerabilities with CodeQL》](https://github.com/githubsatelliteworkshops/codeql)@GitHub Satellite Workshops
 - [ ] [《CodeQL 寻找 JNDI利用 Lookup接口》](https://github.com/SummerSec/LookupInterface)@SummerSec
-- [ ] ~~[《CodeQL中文入门教程》](https://github.com/Cl0udG0d/codeqlCnLearn)@Cl0udG0d~~
 - [ ] https://github.com/haby0/mark
 - [ ] https://github.com/johnjohncom/webinar-2021sep-codeql2
 - [ ] https://github.com/githubsatelliteworkshops/codeql-cpp
