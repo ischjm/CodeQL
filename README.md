@@ -31,13 +31,13 @@
 
 二、优秀资源
 - [ ] [《深入理解CodeQL》](https://github.com/ASTTeam/CodeQL)@0e0w
-- [x] [《CodeQL 学习笔记》](https://www.yuque.com/loulan-b47wt/rc30f7/)@楼兰
-- [x] [《Codeql学习笔记》](https://github.com/safe6Sec/CodeqlNote)@safe6Sec
-- [x] [《记录学习codeql的过程》](https://github.com/Firebasky/CodeqlLearn)@Firebasky
-- [x] [《CodeQL Java 全网最全的中文学习资料》](https://github.com/SummerSec/learning-codeql)@SummerSec
-- [x] [《代码分析平台CodeQL学习手记》](https://www.4hou.com/posts/o6wX)@fanyeee
+- [ ] [《CodeQL 学习笔记》](https://www.yuque.com/loulan-b47wt/rc30f7/)@楼兰
+- [ ] [《Codeql学习笔记》](https://github.com/safe6Sec/CodeqlNote)@safe6Sec
+- [ ] [《记录学习codeql的过程》](https://github.com/Firebasky/CodeqlLearn)@Firebasky
+- [ ] [《CodeQL Java 全网最全的中文学习资料》](https://github.com/SummerSec/learning-codeql)@SummerSec
+- [ ] [《代码分析平台CodeQL学习手记》](https://www.4hou.com/posts/o6wX)@fanyeee
 - [ ] [《静态分析☞CodeQL/Soot/SAST》](https://github.com/pen4uin/static-analysis)@pen4uin
-- [x] [《Finding security vulnerabilities with CodeQL》](https://github.com/githubsatelliteworkshops/codeql)@GitHub Satellite Workshops
+- [ ] [《Finding security vulnerabilities with CodeQL》](https://github.com/githubsatelliteworkshops/codeql)@GitHub Satellite Workshops
 - [ ] [《CodeQL 寻找 JNDI利用 Lookup接口》](https://github.com/SummerSec/LookupInterface)@SummerSec
 - [ ] ~~[《CodeQL中文入门教程》](https://github.com/Cl0udG0d/codeqlCnLearn)@Cl0udG0d~~
 - [ ] https://github.com/haby0/mark
@@ -58,7 +58,7 @@
 
 五、其他资源
 - 先知
-- [x] https://xz.aliyun.com/search?keyword=Codeql
+- [ ] https://xz.aliyun.com/search?keyword=Codeql
 - [ ] [CodeQL 提升篇](https://xz.aliyun.com/t/10852)@Ironf4
 - [ ] https://xz.aliyun.com/t/7789
 - [ ] https://xz.aliyun.com/t/10829
@@ -70,7 +70,7 @@
 - [ ] https://xz.aliyun.com/t/7979
 - [ ] https://xz.aliyun.com/t/7657
 - 跳跳糖
-- [x] https://tttang.com/?keyword=codeql
+- [ ] https://tttang.com/?keyword=codeql
 - [ ] https://tttang.com/archive/1511
 - [ ] https://tttang.com/archive/1512
 - [ ] https://tttang.com/archive/1322
@@ -83,7 +83,7 @@
 - [ ] https://tttang.com/archive/1660
 - [ ] https://tttang.com/archive/1704
 - 安全客
-- [x] https://www.anquanke.com/search?s=codeql
+- [ ] https://www.anquanke.com/search?s=codeql
 - [ ] https://www.anquanke.com/post/id/266823
 - [ ] https://www.anquanke.com/post/id/157583
 - [ ] https://www.anquanke.com/post/id/212305
@@ -111,7 +111,7 @@
 - [ ] https://mp.weixin.qq.com/s/Rqo12z9mapwlj6wGHZ1zZA
 - [ ] https://mp.weixin.qq.com/s/DW0PJfRC0LtMOYx1CQPWpA
 - Freebuf
-- [x] https://search.freebuf.com/search/?search=codeql#article
+- [ ] https://search.freebuf.com/search/?search=codeql#article
 - [ ] https://www.freebuf.com/articles/web/283795.html
 - [ ] https://www.freebuf.com/articles/network/316551.html
 - [ ] https://www.freebuf.com/sectool/291916.html
@@ -170,53 +170,9 @@
 - [ ] https://github.com/zbazztian/codeql-tools
 - [ ] https://paper.seebug.org/1921
 
-## 02-CodeQL基础
 
- 本章节介绍CodeQL的基础用法及设计思路实现原理等！
+## 03-优秀规则
 
-- AST、source、sink、
-- CodeQL的处理对象并不是源码本身，而是中间生成的AST结构数据库，所以我们先需要把我们的项目源码转换成CodeQL能够识别的CodeDatabase。
-- 1、创建数据库。2、对数据库进行查找。3、分析查询结果发现漏洞
-- Engine、Database、Queries
-- AutoBuilder、extractor、trap、逻辑谓词、连接词、逻辑连接词、predicate
-- CodeQL的缺点？不能直接通过打包好的程序进行代码审计。
-
-一、CodeQL安装
-
-二、CodeQL语法
-- https://github.com/semmle/ql
-
-三、CodeQL数据库
-- https://github.com/waderwu/extractor-java
-- https://lgtm.com/help/lgtm/generate-database
-- 生成数据库之前，需要先保证被分析程序可以正常跑起来。
-- 创建数据库
-  - codeql database create java-db --language=java
-  - codeql database create java-db --language=java --command='mvn clean install'
-  - codeql database create cpp-database --language=cpp --command=make
-  - codeql database create csharp-database --language=csharp --command='dotnet build /t:rebuild
-  - codeql database create csharp-database --language=csharp --command='dotnet build /p:UseSharedCompilation=false /t:rebuild'
-  - codeql database create java-database --language=java --command='gradle clean test'
-  - codeql database create java-database --language=java --command='mvn clean install'
-  - codeql database create java-database --language=java --command='ant -f build.xml'
-  - codeql database create new-database --language=java --command='./scripts/build.sh'
-- 分析数据库
-  - codeql database analyze java-db CWE-020.ql --format=csv --output=result.csv
-
-## 03-CodeQL语言
-
-本章节介绍QL语言的语法规则，包括优秀规则等内容。CodeQL为王，规则为先！
-
-一、基础语法
-
-二、规则编写
-- Java
-- C#
-- Go
-
-三、官方规则
-
-四、优秀规则
 - [ ] [《My CodeQL queries collection》](https://github.com/cldrn/codeql-queries)@cldrn
 - [ ] https://github.com/cor0ps/codeql
 - [ ] https://github.com/GeekMasher/security-queries
@@ -268,7 +224,7 @@
 
 七、CodeQL工具
 - [ ] https://github.com/ice-doom/codeql_compile
-- [x] https://github.com/hudangwei/codemillx
+- [ ] https://github.com/hudangwei/codemillx
 - [ ] https://github.com/gagliardetto/codemill
 - [ ] https://github.com/pwntester/codeql.nvim
 - [ ] https://github.com/gagliardetto/codebox
@@ -279,36 +235,36 @@
 
 一、大型应用分析
 - 分析Shiro
-  - https://www.anquanke.com/post/id/256967
+  - [ ] https://www.anquanke.com/post/id/256967
 - 分析Fastjson
-  - https://xz.aliyun.com/t/7482
-  - https://www.buaq.net/go-98696.html
-  - https://www.anquanke.com/post/id/281733
+  - [ ] https://xz.aliyun.com/t/7482
+  - [ ] https://www.buaq.net/go-98696.html
+  - [ ] https://www.anquanke.com/post/id/281733
 - 分析Log4j
-  - https://www.anquanke.com/post/id/255721
-  - https://www.freebuf.com/articles/web/318141.html
-  - https://mp.weixin.qq.com/s/JYco8DysQNszMohH6zJEGw
+  - [ ] https://www.anquanke.com/post/id/255721
+  - [ ] https://www.freebuf.com/articles/web/318141.html
+  - [ ] https://mp.weixin.qq.com/s/JYco8DysQNszMohH6zJEGw
 - 分析Dubbo
-  - https://github.com/github/codeql-dubbo-workshop
-  - https://mp.weixin.qq.com/s/B-uhbd5FApxSXnjPEFzArQ
-  - https://securitylab.github.com/research/apache-dubbo
+  - [ ] https://github.com/github/codeql-dubbo-workshop
+  - [ ] https://mp.weixin.qq.com/s/B-uhbd5FApxSXnjPEFzArQ
+  - [ ] https://securitylab.github.com/research/apache-dubbo
 - 分析kylin
-  - https://xz.aliyun.com/t/8240
+  - [ ] https://xz.aliyun.com/t/8240
 - 分析grafana
-  - https://xz.aliyun.com/t/10648
-  - [用codeql分析grafana最新任意文件读取](https://github.com/safe6Sec/codeql-grafana)
+  - [ ] https://xz.aliyun.com/t/10648
+  - [ ] [用codeql分析grafana最新任意文件读取](https://github.com/safe6Sec/codeql-grafana)
 - 分析Hadoop
-  - https://mp.weixin.qq.com/s/CyhWw4t8LdGhCpixacb6Xg
+  - [ ] https://mp.weixin.qq.com/s/CyhWw4t8LdGhCpixacb6Xg
 - 分析Struts2
-  - https://www.anquanke.com/post/id/157583
+  - [ ] https://www.anquanke.com/post/id/157583
 
 二、代码审计案例
-- https://www.anquanke.com/post/id/203674
-- https://www.jianshu.com/p/99942852a3aa
-- https://www.anquanke.com/post/id/202987
-- https://mp.weixin.qq.com/s/LmOFGAhqAKiO8VDQW4vvLg
-- https://github.com/hac425xxx/codeql-snippets
-- https://github.com/elManto/StaticAnalysisQueries
+- [ ] https://www.anquanke.com/post/id/203674
+- [ ] https://www.jianshu.com/p/99942852a3aa
+- [ ] https://www.anquanke.com/post/id/202987
+- [ ] https://mp.weixin.qq.com/s/LmOFGAhqAKiO8VDQW4vvLg
+- [ ] https://github.com/hac425xxx/codeql-snippets
+- [ ] https://github.com/elManto/StaticAnalysisQueries
 
 ## 06-CodeQL参考
 
@@ -317,14 +273,3 @@
 - [微信公众号：xsser的博客](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA4NzA5OTYzNw==&scene=123#wechat_redirect)
 - [微信公众号：楼兰学习网络安全](https://mp.weixin.qq.com/s/7wJKMVyc36U-PciZGmjrcg)
 
-## Stargazers
-
-[![Stargazers @ASTTeam/CodeQL](https://reporoster.com/stars/ASTTeam/CodeQL)](https://github.com/ASTTeam/CodeQL/stargazers)
-
-## Forkers
-
-[![Forkers @ASTTeam/CodeQL](https://reporoster.com/forks/ASTTeam/CodeQL)](https://github.com/ASTTeam/CodeQL/network/members)
-
-![](01-CodeQL资源/TEMP/wx.png)
-
-[![Stargazers over time](https://starchart.cc/ASTTeam/CodeQL.svg)](https://starchart.cc/ASTTeam/CodeQL)
